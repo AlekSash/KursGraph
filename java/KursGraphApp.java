@@ -1,22 +1,35 @@
+
+import java.io.FileInputStream;
+import net.didion.jwnl.JWNL;
+import net.didion.jwnl.data.IndexWord;
+import net.didion.jwnl.data.POS;
+import net.didion.jwnl.data.Synset;
+import net.didion.jwnl.dictionary.Dictionary;
+
 public class KursGraphApp
 {
-    public static void main(String[] args)
+    private IndexWord DOG;
+
+    public KursGraphApp() throws Exception 
     {
-        // construct the URL to the Wordnet dictionary directory
-        String wnhome = System.getenv("WNHOME");
-        String path = wnhome + File.separator + "dict";
-        URL url = new URL("file", null, path);
+        DOG = Dictionary.getInstance().getIndexWord(POS.NOUN, "dog");
+    }
 
-        // construct the dictionary object and open it
-        IDictionary dict = new Dictionary(url);
-        dict.open();
+    public void go() throws Exception
+    {
+        for (Synset o : DOG.getSenses())
+            System.out.println(o);
+    }
 
-        // look up first sense of the word "dog"
-        IIndexWord idxWord = dict.getIndexWord("dog", POS.NOUN);
-        IWordID wordID = idxWord.getWordIDs().get(0);
-        IWord word = dict.getWord(wordID);
-        System.out.println("Id = " + wordID);
-        System.out.println("Lemma = " + word.getLemma());
-        System.out.println("Gloss = " + word.getSynset().getGloss());
+    public static void main(String[] args) 
+    {
+        String _PROPS_FILE = "file_properties.xml";
+        try {
+            JWNL.initialize(new FileInputStream(_PROPS_FILE));
+            new KursGraphApp().go();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.exit(-1);
+        }
     }
 }
