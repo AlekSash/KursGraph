@@ -1,0 +1,18 @@
+#!/bin/sh -e
+#
+# Executes KursGraph app on GNU/Linux systems.
+# For real using give the proper value to the $TOPDIR variable on line below.
+
+TOPDIR=~/KursGraph.git
+
+collect_jars()
+{
+    if [ -d "$1" ]; then
+	find "$1" -iname '*.jar' | xargs echo | sed s/' '/':'/g | sed s:/./:/:g
+    fi
+}
+
+CLASSPATH="$(collect_jars "$TOPDIR/lib")"
+CLASSPATH=":$CLASSPATH:$TOPDIR/jar/kursgraph.jar"
+
+exec java -cp "$CLASSPATH" KursGraphApp "$@"
