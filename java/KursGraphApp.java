@@ -1,11 +1,15 @@
 
+import java.io.PrintWriter;
 import java.lang.Integer;
+import java.lang.Object;
 import java.lang.String;
 import java.util.*;
 import java.io.*;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.Vector;
 
 import net.didion.jwnl.JWNL;
 import net.didion.jwnl.data.IndexWord;
@@ -15,6 +19,70 @@ import net.didion.jwnl.data.Synset;
 import net.didion.jwnl.data.Pointer;
 import net.didion.jwnl.dictionary.Dictionary;
 
+class Node
+{
+    public Object node;
+    public Vector adjacentNodes = new Vector();
+    private int count = 1;
+
+    public Node(Object elem)
+    {
+      node = elem;
+    };
+
+    public void setArc(Object elem)
+    {
+        adjacentNodes.setElementAt(elem,count);
+        count++;
+    };
+
+    public void delArc(Object elem)
+    {
+        if(count>0)
+        adjacentNodes.removeElement(elem);
+        count--;
+    };
+}
+
+class Graph
+{
+    private Vector<Node> nodes = new Vector<Node>();
+    public int size = 0;
+    public int last = 0;
+    public Object GetElem(int index)
+    {
+        return nodes.get(index);
+    }
+    public void AddNode(int index, Object v)
+    {
+       Node a = new Node(v);
+       nodes.setElementAt(a, index);
+        if (last<index) last=index;
+        size = nodes.size();
+    };
+
+    public void DeleteNode(int index)
+    {
+      if(last>=index)
+          nodes.removeElementAt(index);
+        size = nodes.size();
+    };
+
+    public void AddArc(Object sourse, Object target)
+    {
+        int t = nodes.indexOf(sourse);
+        Node a = new Node(nodes.get(t));
+        a.setArc(target);
+        nodes.setElementAt(a,t);
+    };
+    public void DeleteArc(int sourse, int target)
+    {
+        int t = nodes.indexOf(sourse);
+        Node a = new Node(nodes.get(t));
+        a.delArc(target);
+        nodes.setElementAt(a,t);
+    };
+}
 
 public class KursGraphApp
 {
@@ -27,35 +95,25 @@ public class KursGraphApp
         Iterator it1 = dict.getIndexWordIterator(POS.NOUN);
         //файл для записи слов
         PrintWriter writer = new PrintWriter("output.txt", "UTF-8");
+        PrintWriter tester = new PrintWriter("test.txt");
         //Мар для записи пары ключ, слово
         Map<Integer, String> words= new TreeMap<Integer, String>();
         Set kv = words.entrySet();
-        //матрица смежностей для представления графа
-        Integer SMatrix [][] = new Integer[120000][120000];
-        for (Integer i1=0; i1!=SMatrix.length; i1++)
-            for (Integer j1=0; j1!=SMatrix.length; j1++)
-            {
-                SMatrix[i1][j1]=0;
-            }
-        Integer count=0;
-        ///заполнение Мар
-        while(it1.hasNext())
-        {   //текущее слово
-            IndexWord cur = (IndexWord)it1.next();
-            //получение леммы
-            String lem = cur.getLemma();
-            count++;
-            //помещение леммы по ключу в Мар
-            words.put(count, lem);
-        }
-        ///
-        count = 0;
+
+
+
+
+
+        Graph tes = new Graph();
+        int count = 0;
         while(it.hasNext())
         {   //текущее слово
             IndexWord current = (IndexWord)it.next();
             //получение леммы
             String lemma = current.getLemma();
             count++;
+            tes.AddNode(count,lemma);
+            tester.println(tes.GetElem(count));
             //печать леммы
             writer.print(lemma);
             writer.println();
@@ -72,22 +130,7 @@ public class KursGraphApp
                     for (int k=0;k!=d.length;k++)
                     {   //для каждой целевой леммы
                         String tar = d[k].getLemma();
-                        //запускаем итератор
-                        Iterator it2 = kv.iterator();
-                        while(it2.hasNext())
-                        {
-                            //доступ к данным Мар через интерфейс Entry
-                            Map.Entry m = (Map.Entry)it2.next();
-                            //ищем целевую лемму в Мар
-                            if(tar.equals((String)m.getValue()))
-                            {
-                                //достаём её ключ
-                                Integer num = (Integer)m.getKey();
-                                //заполняем матрицу смежностей
-                                SMatrix[count][num] = 1;
-                            }
-                        }
-                        it2.remove();
+                        tes.AddArc(lemma,tar);
                         writer.print(tar);
                         writer.print("  ");
 
@@ -99,5 +142,6 @@ public class KursGraphApp
 
             writer.println();
         }
+        tester.close();
     }
 }
