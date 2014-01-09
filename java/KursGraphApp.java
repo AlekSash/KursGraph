@@ -23,65 +23,66 @@ class Node
 {
     public Object node;
     public Vector adjacentNodes = new Vector();
-    private int count = 1;
 
     public Node(Object elem)
     {
       node = elem;
     };
 
-    public void setArc(Object elem)
+    public void addArc(Object elem)
     {
-        adjacentNodes.setElementAt(elem,count);
-        count++;
-    };
+        adjacentNodes.add(elem);
+    }
 
     public void delArc(Object elem)
     {
-        if(count>0)
         adjacentNodes.removeElement(elem);
-        count--;
-    };
+    }
 }
 
 class Graph
 {
     private Vector<Node> nodes = new Vector<Node>();
-    public int size = 0;
-    public int last = 0;
+
+    // This method provides access to the Node object which is supposed to be a part of internal structure, it is not a good idea!
     public Object GetElem(int index)
     {
         return nodes.get(index);
     }
-    public void AddNode(int index, Object v)
+
+    public void AddNode(Object v)
     {
-       Node a = new Node(v);
-       nodes.setElementAt(a, index);
-        if (last<index) last=index;
-        size = nodes.size();
-    };
+	nodes.add(new Node(v));
+    }
 
     public void DeleteNode(int index)
     {
-      if(last>=index)
-          nodes.removeElementAt(index);
-        size = nodes.size();
-    };
+	if (index >= 0 && index < nodes.size())
+	    nodes.removeElementAt(index);
+    }
 
-    public void AddArc(Object sourse, Object target)
+    public void AddArc(Object source, Object target)
     {
-        int t = nodes.indexOf(sourse);
-        Node a = new Node(nodes.get(t));
-        a.setArc(target);
-        nodes.setElementAt(a,t);
-    };
-    public void DeleteArc(int sourse, int target)
+	int sourceIndex = nodes.indexOf(source);
+	if (sourceIndex == -1)
+	{
+	    nodes.add(new Node(source));
+	    sourceIndex = nodes.size() - 1;
+	}
+	Node sourceNode = nodes.get(sourceIndex);
+	sourceNode.addArc(target);
+	if (nodes.indexOf(target) == -1)
+	    nodes.add(new Node(target));
+    }
+
+    public void DeleteArc(int source, int target)
     {
-        int t = nodes.indexOf(sourse);
-        Node a = new Node(nodes.get(t));
-        a.delArc(target);
-        nodes.setElementAt(a,t);
-    };
+	if (source < 0 || source >= nodes.size() ||
+	    target < 0 || target >= nodes.size())
+	    return;
+        Node a = nodes.get(source);
+        a.delArc(nodes.get(target).node);
+    }
 }
 
 public class KursGraphApp
@@ -112,7 +113,7 @@ public class KursGraphApp
             //получение леммы
             String lemma = current.getLemma();
             count++;
-            tes.AddNode(count,lemma);
+            tes.AddNode(/*count,*/lemma);
             tester.println(tes.GetElem(count));
             //печать леммы
             writer.print(lemma);
