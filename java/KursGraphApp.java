@@ -22,18 +22,27 @@ import net.didion.jwnl.dictionary.Dictionary;
 
 class Node
 {
-    public Object node;
-
+    private Object node;
     private Vector adjacentNodes = new Vector();
 
-    public Node(Object elem)
+    public Node(Object node)
     {
-      node = elem;
+	this.node = node;
     };
 
-    public Iterator CreateIterator()
+    public Object getNode()
     {
-      return adjacentNodes.iterator();
+	return node;
+    }
+
+    public Object[] getAdjacentNodes()
+    {
+	return adjacentNodes.toArray(new Object[adjacentNodes.size()]);
+    }
+
+    public Iterator<Node> CreateIterator()
+    {
+	return adjacentNodes.iterator();
     };
 
     public void addArc(Object elem)
@@ -47,7 +56,6 @@ class Node
     };
 }
 
-
 class Graph
 {
     private Vector<Node> nodes = new Vector<Node>();
@@ -58,7 +66,7 @@ class Graph
         return nodes.get(index);
     };
 
-    public Iterator CreateIterator()
+    public Iterator<Node> CreateIterator()
     {
         return nodes.iterator();
     };
@@ -75,25 +83,20 @@ class Graph
 
     public void DeleteNode(int index)
     {
-	    if (index >= 0 && index < nodes.size())
-        {   Node v = nodes.get(index);
-	        nodes.removeElementAt(index);
-            Iterator it1 =this.CreateIterator();
-            while (it1.hasNext())
-            {
-                Node p = it1.next();
-                Iterator it2 = p.CreateIterator();
-                while(it2.hasNext())
-                {
-                   Object a = it2.next();
-                    if(a==v.node)
-                        p.delArc(a);
-                }
-            }
-            }
-
-        };
-
+	if (index < 0 || index >= nodes.size())
+	    return;
+	Node v = nodes.get(index);
+	nodes.removeElementAt(index);
+	for(Node p: nodes)
+	{
+	    Vector toRemove = new Vector();
+	    for(Object o: p.getAdjacentNodes())
+		if (o == v.getNode())
+		    toRemove.add(o);
+	    for(Object o: toRemove)
+		p.delArc(o);
+	}
+    }
 
     public void AddArc(Object source, Object target)
     {
@@ -120,7 +123,6 @@ class Graph
         sourceNode.delArc(target);
     };
 }
-
 
 public class KursGraphApp
 {
