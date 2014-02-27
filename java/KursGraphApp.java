@@ -61,7 +61,7 @@ class Graph
     private Vector<Node> nodes = new Vector<Node>();
 
     // This method provides access to the Node object which is supposed to be a part of internal structure, it is not a good idea!
-    private Object GetElem(int index)
+    public Object GetElem(int index)
     {
         return nodes.get(index);
     };
@@ -134,17 +134,25 @@ public class KursGraphApp
         PrintWriter writer = new PrintWriter("output.txt", "UTF-8");
         PrintWriter tester = new PrintWriter("test.txt",  "UTF-8");
         Graph tes = new Graph();
-        Iterator it1 = tes.CreateIterator();
-        while(it.hasNext())
+        Iterator<Node> it1 = tes.CreateIterator();
+        int wer = -1;
+        while((it.hasNext())&&(wer<10))
         {   //текущее слово
             IndexWord current = (IndexWord)it.next();
+            wer++;
             //получение леммы
             String lemma = current.getLemma();
             tes.AddNode(lemma);
-            tester.println(it1.next());
-            //печать леммы
-            writer.print(lemma);
+            Node f = (Node)tes.GetElem(wer);
+
+          //  Node f = new Node((String)it1.next().getNode());
+            String f1 = (String)f.getNode();
+           writer.print(f1);
             writer.println();
+            tester.print(lemma);
+            //печать леммы
+            //writer.print(lemma);
+            tester.println();
             //получение множества синсетов, в котором она содержится
             Synset [] a = current.getSenses();
             for (int i=0;i!=a.length;i++)
@@ -159,17 +167,19 @@ public class KursGraphApp
                     {   //для каждой целевой леммы
                         String tar = d[k].getLemma();
                         tes.AddArc(lemma,tar);
-                        writer.print(tar);
-                        writer.print("  ");
+                       // tester.print(tar);
+                        tester.print("  ");
 
                     }
-                    writer.println();
+                    tester.println();
 
                 }
             }
 
-            writer.println();
+            tester.println();
         }
+
         tester.close();
+        writer.close();
     }
 }
