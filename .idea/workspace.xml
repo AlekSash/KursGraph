@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b51efba6-0003-40d4-92cf-eda8f3ab0e3a" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\Саша\Documents\GitHub\KursGraph\output.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Саша\Documents\GitHub\KursGraph\test.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jar/kursgraph.jar" afterPath="$PROJECT_DIR$/jar/kursgraph.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/java/KursGraphApp.java" afterPath="$PROJECT_DIR$/java/KursGraphApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output.txt" afterPath="$PROJECT_DIR$/output.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.txt" afterPath="$PROJECT_DIR$/test.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KursGraph.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b51efba6-0003-40d4-92cf-eda8f3ab0e3a" time="1393462051124" ignored="false" />
+    <file path="/Dummy.txt" changelist="b51efba6-0003-40d4-92cf-eda8f3ab0e3a" time="1397979571274" ignored="false" />
     <file path="/fragment.java" changelist="b51efba6-0003-40d4-92cf-eda8f3ab0e3a" time="1384684611708" ignored="false" />
-    <file path="/KursGraphApp.java" changelist="b51efba6-0003-40d4-92cf-eda8f3ab0e3a" time="1393469457883" ignored="false" />
+    <file path="/KursGraphApp.java" changelist="b51efba6-0003-40d4-92cf-eda8f3ab0e3a" time="1397987262938" ignored="false" />
     <file path="/file_properties.xml" changelist="b51efba6-0003-40d4-92cf-eda8f3ab0e3a" time="1387277264636" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +33,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <breakpoint_rules default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -68,34 +67,90 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <breakpoint_rules default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="KursGraph" />
+    <favorites_list name="bvnbvnb">
+      <favorite_root url="file://$PROJECT_DIR$" module="KursGraph" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/.idea" module="KursGraph" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/.idea/.name" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/.idea/ant.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/.idea/compiler.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/.idea/copyright" module="KursGraph" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+            <favorite_root url="file://$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          </favorite_root>
+          <favorite_root url="file://$PROJECT_DIR$/.idea/encodings.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/.idea/misc.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/.idea/modules.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/.idea/scopes" module="KursGraph" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+            <favorite_root url="file://$PROJECT_DIR$/.idea/scopes/scope_settings.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          </favorite_root>
+          <favorite_root url="file://$PROJECT_DIR$/.idea/uiDesigner.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/.idea/vcs.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/.idea/workspace.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/.gitattributes" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/.gitignore" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/build.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/config" module="KursGraph" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/config/database_properties.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/config/file_properties.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/config/map_properties.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/java" module="KursGraph" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/java/KursGraphApp.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/KursGraph.iml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib" module="KursGraph" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/lib/.git-empty-dir" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/commons-logging.jar" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/junit-4.1.jar" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/jwnl.jar" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src" module="KursGraph" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        <favorite_root url="file://$PROJECT_DIR$/run.bat" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/bin" module="KursGraph" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/bin/kg" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/_file_properties.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/file_properties.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/output.txt" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/test.txt" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/jar" module="KursGraph" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/jar/kursgraph.jar" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/build" module="KursGraph" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/build/Graph.class" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/build/KursGraphApp.class" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/build/Node.class" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+      </favorite_root>
+    </favorites_list>
   </component>
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="KursGraphApp.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/java/KursGraphApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="11" selection-start="3703" selection-end="3703" vertical-scroll-proportion="-1.0625">
+            <state line="198" column="46" selection-start="5434" selection-end="5434" vertical-scroll-proportion="0.6023392">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#Node#0;class#Node#0" expanded="false" />
-                <element signature="method#getNode#0;class#Node#0" expanded="false" />
-                <element signature="method#getAdjacentNodes#0;class#Node#0" expanded="false" />
-                <element signature="method#CreateIterator#0;class#Node#0" expanded="false" />
-                <element signature="method#addArc#0;class#Node#0" expanded="false" />
-                <element signature="method#delArc#0;class#Node#0" expanded="false" />
-                <element signature="e#1208#1214#0" expanded="true" />
-                <element signature="method#GetSize#0;class#Graph#0" expanded="false" />
-                <element signature="method#AddNode#0;class#Graph#0" expanded="false" />
-                <element signature="method#DeleteNode#0;class#Graph#0" expanded="false" />
-                <element signature="method#AddArc#0;class#Graph#0" expanded="false" />
-                <element signature="method#DeleteArc#0;class#Graph#0" expanded="false" />
+                <element signature="e#1486#1492#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Vector.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/util/Vector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="376" column="15" selection-start="13936" selection-end="13936" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -266,6 +321,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -286,8 +343,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -304,12 +359,12 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -352,6 +407,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -378,19 +446,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -512,27 +567,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="696" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1296" height="696" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2504638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.6703911" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24473257" sideWeight="0.6660482" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24473257" sideWeight="0.51576996" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39851025" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33395177" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48423004" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1929499" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.7485605" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18314424" sideWeight="0.6660482" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18314424" sideWeight="0.51576996" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5065177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -614,21 +669,10 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/java/KursGraphApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="117" selection-start="861" selection-end="861" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Node#0;class#Node#0" expanded="false" />
-            <element signature="method#getNode#0;class#Node#0" expanded="false" />
-            <element signature="method#getAdjacentNodes#0;class#Node#0" expanded="false" />
-            <element signature="method#CreateIterator#0;class#Node#0" expanded="false" />
-            <element signature="method#addArc#0;class#Node#0" expanded="false" />
-            <element signature="method#delArc#0;class#Node#0" expanded="false" />
-            <element signature="e#1208#1214#0" expanded="true" />
-            <element signature="method#GetSize#0;class#Graph#0" expanded="false" />
-            <element signature="method#AddNode#0;class#Graph#0" expanded="false" />
-            <element signature="method#DeleteNode#0;class#Graph#0" expanded="false" />
-            <element signature="method#AddArc#0;class#Graph#0" expanded="false" />
-            <element signature="method#DeleteArc#0;class#Graph#0" expanded="false" />
+            <element signature="e#1486#1492#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -638,18 +682,7 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Node#0;class#Node#0" expanded="false" />
-            <element signature="method#getNode#0;class#Node#0" expanded="false" />
-            <element signature="method#getAdjacentNodes#0;class#Node#0" expanded="false" />
-            <element signature="method#CreateIterator#0;class#Node#0" expanded="false" />
-            <element signature="method#addArc#0;class#Node#0" expanded="false" />
-            <element signature="method#delArc#0;class#Node#0" expanded="false" />
-            <element signature="e#1208#1214#0" expanded="true" />
-            <element signature="method#GetSize#0;class#Graph#0" expanded="false" />
-            <element signature="method#AddNode#0;class#Graph#0" expanded="false" />
-            <element signature="method#DeleteNode#0;class#Graph#0" expanded="false" />
-            <element signature="method#AddArc#0;class#Graph#0" expanded="false" />
-            <element signature="method#DeleteArc#0;class#Graph#0" expanded="false" />
+            <element signature="e#1486#1492#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -659,18 +692,7 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Node#0;class#Node#0" expanded="false" />
-            <element signature="method#getNode#0;class#Node#0" expanded="false" />
-            <element signature="method#getAdjacentNodes#0;class#Node#0" expanded="false" />
-            <element signature="method#CreateIterator#0;class#Node#0" expanded="false" />
-            <element signature="method#addArc#0;class#Node#0" expanded="false" />
-            <element signature="method#delArc#0;class#Node#0" expanded="false" />
-            <element signature="e#1208#1214#0" expanded="true" />
-            <element signature="method#GetSize#0;class#Graph#0" expanded="false" />
-            <element signature="method#AddNode#0;class#Graph#0" expanded="false" />
-            <element signature="method#DeleteNode#0;class#Graph#0" expanded="false" />
-            <element signature="method#AddArc#0;class#Graph#0" expanded="false" />
-            <element signature="method#DeleteArc#0;class#Graph#0" expanded="false" />
+            <element signature="e#1486#1492#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -680,39 +702,7 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Node#0;class#Node#0" expanded="false" />
-            <element signature="method#getNode#0;class#Node#0" expanded="false" />
-            <element signature="method#getAdjacentNodes#0;class#Node#0" expanded="false" />
-            <element signature="method#CreateIterator#0;class#Node#0" expanded="false" />
-            <element signature="method#addArc#0;class#Node#0" expanded="false" />
-            <element signature="method#delArc#0;class#Node#0" expanded="false" />
-            <element signature="e#1208#1214#0" expanded="true" />
-            <element signature="method#GetSize#0;class#Graph#0" expanded="false" />
-            <element signature="method#AddNode#0;class#Graph#0" expanded="false" />
-            <element signature="method#DeleteNode#0;class#Graph#0" expanded="false" />
-            <element signature="method#AddArc#0;class#Graph#0" expanded="false" />
-            <element signature="method#DeleteArc#0;class#Graph#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java/KursGraphApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Node#0;class#Node#0" expanded="false" />
-            <element signature="method#getNode#0;class#Node#0" expanded="false" />
-            <element signature="method#getAdjacentNodes#0;class#Node#0" expanded="false" />
-            <element signature="method#CreateIterator#0;class#Node#0" expanded="false" />
-            <element signature="method#addArc#0;class#Node#0" expanded="false" />
-            <element signature="method#delArc#0;class#Node#0" expanded="false" />
-            <element signature="e#1208#1214#0" expanded="true" />
-            <element signature="method#GetSize#0;class#Graph#0" expanded="false" />
-            <element signature="method#AddNode#0;class#Graph#0" expanded="false" />
-            <element signature="method#DeleteNode#0;class#Graph#0" expanded="false" />
-            <element signature="method#AddArc#0;class#Graph#0" expanded="false" />
-            <element signature="method#DeleteArc#0;class#Graph#0" expanded="false" />
+            <element signature="e#1486#1492#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -742,11 +732,6 @@
         <state line="353" column="0" selection-start="12892" selection-end="12892" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/run.bat">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="89" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0" />
@@ -757,35 +742,31 @@
         <state line="1" column="94" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/util/Vector.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/jre/lib/rt.jar!/sun/security/provider/certpath/Vertex.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1112" column="36" selection-start="43162" selection-end="43162" vertical-scroll-proportion="0.0" />
+        <state line="6" column="22" selection-start="180" selection-end="181" vertical-scroll-proportion="0.165692" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="29" selection-start="373" selection-end="373" vertical-scroll-proportion="0.33333334">
+        <state line="13" column="37" selection-start="381" selection-end="381" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/util/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="376" column="15" selection-start="13936" selection-end="13936" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/java/KursGraphApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="11" selection-start="3703" selection-end="3703" vertical-scroll-proportion="-1.0625">
+        <state line="198" column="46" selection-start="5434" selection-end="5434" vertical-scroll-proportion="0.6023392">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Node#0;class#Node#0" expanded="false" />
-            <element signature="method#getNode#0;class#Node#0" expanded="false" />
-            <element signature="method#getAdjacentNodes#0;class#Node#0" expanded="false" />
-            <element signature="method#CreateIterator#0;class#Node#0" expanded="false" />
-            <element signature="method#addArc#0;class#Node#0" expanded="false" />
-            <element signature="method#delArc#0;class#Node#0" expanded="false" />
-            <element signature="e#1208#1214#0" expanded="true" />
-            <element signature="method#GetSize#0;class#Graph#0" expanded="false" />
-            <element signature="method#AddNode#0;class#Graph#0" expanded="false" />
-            <element signature="method#DeleteNode#0;class#Graph#0" expanded="false" />
-            <element signature="method#AddArc#0;class#Graph#0" expanded="false" />
-            <element signature="method#DeleteArc#0;class#Graph#0" expanded="false" />
+            <element signature="e#1486#1492#0" expanded="true" />
           </folding>
         </state>
       </provider>

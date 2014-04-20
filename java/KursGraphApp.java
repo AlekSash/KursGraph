@@ -1,9 +1,11 @@
 
 import java.io.PrintWriter;
+import java.lang.*;
 import java.lang.Integer;
 import java.lang.Iterable;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.System;
 import java.util.*;
 import java.io.*;
 import java.util.Arrays;
@@ -19,10 +21,13 @@ import net.didion.jwnl.data.POS;
 import net.didion.jwnl.data.Synset;
 import net.didion.jwnl.data.Pointer;
 import net.didion.jwnl.dictionary.Dictionary;
+import sun.security.provider.certpath.Vertex;
 
+/*класс узла*/
 class Node
 {
     private Object node;
+    /*множество смежных узлов*/
     private Vector adjacentNodes = new Vector();
 
     public Node(Object node)
@@ -45,22 +50,26 @@ class Node
 	return adjacentNodes.iterator();
     };
 
+    /*добавление смежного узла = добавление ребра*/
     public void addArc(Object elem)
     {
         adjacentNodes.add(elem);
     };
 
+    /*удаление смежного узла = удаление ребра*/
     public void delArc(Object elem)
     {
         adjacentNodes.removeElement(elem);
     };
 }
 
+/*класс графа*/
 class Graph
 {
+    /*множество узлов*/
     private Vector<Node> nodes = new Vector<Node>();
 
-    // This method provides access to the Node object which is supposed to be a part of internal structure, it is not a good idea!
+    /*получение узла по индексу*/
     public Object GetElem(int index)
     {
         return nodes.get(index);
@@ -71,16 +80,21 @@ class Graph
         return nodes.iterator();
     };
 
+
     public int GetSize()
     {
       return nodes.size();
     };
 
+    /*добавление узла*/
     public void AddNode(Object v)
     {
 	    nodes.add(new Node(v));
+        System.out.println();
+        System.out.println(v);
     };
 
+    /*удаление узла по индексу*/
     public void DeleteNode(int index)
     {
 	if (index < 0 || index >= nodes.size())
@@ -98,20 +112,27 @@ class Graph
 	}
     }
 
+    /*добавление дуги между двумя узлами - исходным и целевым*/
     public void AddArc(Object source, Object target)
     {
+    //в этом месте проблемы!
 	int sourceIndex = nodes.indexOf(source);
 	if (sourceIndex == -1)
 	{
+        System.out.println(nodes.size());
 	    nodes.add(new Node(source));
 	    sourceIndex = nodes.size() - 1;
+        System.out.print(source);
+        System.out.print(" ");
 	}
 	Node sourceNode = nodes.get(sourceIndex);
 	sourceNode.addArc(target);
-	if (nodes.indexOf(target) == -1)
-	    nodes.add(new Node(target));
+	/*if (nodes.indexOf(target) == -1)
+	    nodes.add(new Node(target));*/
+
     };
 
+    /*удаление дуги между двумя узлами - исходным и целевым*/
     public void DeleteArc(Object source, Object target)
     {
         int sourceIndex = nodes.indexOf(source);
@@ -122,7 +143,9 @@ class Graph
         Node sourceNode = nodes.get(sourceIndex);
         sourceNode.delArc(target);
     };
+
 }
+
 
 public class KursGraphApp
 {
@@ -131,27 +154,30 @@ public class KursGraphApp
         JWNL.initialize(new FileInputStream("file_properties.xml"));
         Dictionary dict = Dictionary.getInstance();
         Iterator it = dict.getIndexWordIterator(POS.NOUN);
-        PrintWriter writer = new PrintWriter("output.txt", "UTF-8");
-        PrintWriter tester = new PrintWriter("test.txt",  "UTF-8");
+
+        PrintWriter writer = new PrintWriter("writer.txt", "UTF-8");
+        PrintWriter tester = new PrintWriter("tester.txt",  "UTF-8");
+        /*создание графа*/
         Graph tes = new Graph();
+        /*создание итератора по узлам для графа*/
         Iterator<Node> it1 = tes.CreateIterator();
         int wer = -1;
         while((it.hasNext())&&(wer<10))
-        {   //текущее слово
+        {   //текущее слово из словаря
             IndexWord current = (IndexWord)it.next();
             wer++;
+            System.out.println();
+            System.out.println();
+            System.out.print(wer);
             //получение леммы
             String lemma = current.getLemma();
+            /*добавление леммы в граф в виде узла*/
             tes.AddNode(lemma);
             Node f = (Node)tes.GetElem(wer);
-
-          //  Node f = new Node((String)it1.next().getNode());
             String f1 = (String)f.getNode();
-           writer.print(f1);
+            writer.print(f1);
             writer.println();
             tester.print(lemma);
-            //печать леммы
-            //writer.print(lemma);
             tester.println();
             //получение множества синсетов, в котором она содержится
             Synset [] a = current.getSenses();
@@ -167,8 +193,9 @@ public class KursGraphApp
                     {   //для каждой целевой леммы
                         String tar = d[k].getLemma();
                         tes.AddArc(lemma,tar);
-                       // tester.print(tar);
-                        tester.print("  ");
+                        tester.print(tar);
+                        tester.print(" ");
+
 
                     }
                     tester.println();
@@ -178,8 +205,9 @@ public class KursGraphApp
 
             tester.println();
         }
-
+        writer.print(tes.GetSize());
         tester.close();
         writer.close();
+        System.in.read();
     }
 }
