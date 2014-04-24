@@ -35,6 +35,14 @@ class Node
 	this.node = node;
     };
 
+    public boolean equals(Object o)
+    {
+	if (node == null || o == null || !(o instanceof Node))
+	    return false;
+	Node n = (Node)o;
+	return node == n.node || node.equals(n.node);
+    }
+
     public Object getNode()
     {
 	return node;
