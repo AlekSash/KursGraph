@@ -3,6 +3,7 @@ import java.io.PrintWriter;
 import java.lang.*;
 import java.lang.Integer;
 import java.lang.Iterable;
+import java.lang.NullPointerException;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.System;
@@ -124,8 +125,17 @@ class Graph
     public void AddArc(Object source, Object target)
     {
     //в этом месте проблемы!
-	int sourceIndex = nodes.indexOf(source);
-	if (sourceIndex == -1)
+	int sourceIndex=0;
+        int c = 0;
+        for(Node p: nodes)
+        {
+        if  (!(p.equals(source)))
+                c++;
+        if (p.equals(source))
+            sourceIndex = c;
+
+        }
+	if (c==nodes.size())
 	{
         System.out.println(nodes.size());
 	    nodes.add(new Node(source));
