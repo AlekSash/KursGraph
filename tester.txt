@@ -2,14 +2,17 @@
 vicinity locality neighborhood neighbourhood neck_of_the_woods 
 slang cant jargon lingo argot patois vernacular 
 
+
 's gravenhage
 city metropolis urban_center 
 Netherlands The_Netherlands Kingdom_of_The_Netherlands Nederland Holland 
+
 
 .22
 firearm piece small-arm 
 twenty-two_pistol 
 twenty-two_rifle 
+
 
 0
 digit figure 
@@ -17,27 +20,31 @@ calculate cipher cypher compute work_out reckon figure
 calculate cipher cypher compute work_out reckon figure 
 zero 
 
+
 1
 digit figure 
 monad monas 
 singleton 
 
+
 1-dodecanol
 alcohol 
+
 
 1-hitter
 baseball baseball_game 
 
+
 10
 large_integer 
 
+
 100
 large_integer 
+
 
 1000
 large_integer 
 millenary 
 
-10000
-large_integer 
 
