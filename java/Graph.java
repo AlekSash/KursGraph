@@ -54,7 +54,7 @@ class Graph
     public void AddArc(Object source, Object target)
     {
         //в этом месте проблемы!
-        int sourceIndex=nodes.indexOf(source);
+        int sourceIndex=nodes.indexOf(new Node(source));
 //        int c = 0;
 //        for(Node p: nodes)
 //        {
