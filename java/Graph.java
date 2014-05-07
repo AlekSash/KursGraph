@@ -1,5 +1,16 @@
 
+import java.lang.String;
 import java.util.*;
+
+import net.didion.jwnl.JWNLException;
+import net.didion.jwnl.JWNL;
+import net.didion.jwnl.data.IndexWord;
+import net.didion.jwnl.data.Word;
+import net.didion.jwnl.data.POS;
+import net.didion.jwnl.data.Synset;
+import net.didion.jwnl.data.Pointer;
+import net.didion.jwnl.dictionary.Dictionary;
+import sun.security.provider.certpath.Vertex;
 
 /*класс графа*/
 class Graph
@@ -53,18 +64,8 @@ class Graph
     /*добавление дуги между двумя узлами - исходным и целевым*/
     public void AddArc(Object source, Object target)
     {
-        //в этом месте проблемы!
         int sourceIndex=nodes.indexOf(new Node(source));
-//        int c = 0;
-//        for(Node p: nodes)
-//        {
-//            if  (!(p.equals(source)))
-//                c++;
-//            if (p.equals(source)) {
-//                sourceIndex = c;
-//                break;
-//            }
-//        }
+
         if (sourceIndex==-1)
         {
             AddNode(source);
@@ -72,8 +73,7 @@ class Graph
         }
         Node sourceNode = nodes.get(sourceIndex);
         sourceNode.addArc(target);
-	/*if (nodes.indexOf(target) == -1)
-	    nodes.add(new Node(target));*/
+
 
     };
 
@@ -89,4 +89,30 @@ class Graph
         sourceNode.delArc(target);
     };
 
+    public void graphFill(String lemma, Synset [] a)throws JWNLException
+    {
+            /*добавление леммы в граф в виде узла*/
+        this.AddNode(lemma);
+
+        for (int i = 0; i != a.length; i++)
+        {  //для каждого синсета получение множества указателей на другие синсеты
+            Pointer[] b = a[i].getPointers();
+
+            for (int j = 0; j != b.length; j++)
+            {   //для каждого указателя получение его целевого синсета
+                Synset c = b[j].getTargetSynset();
+                //получение множества слов целевого синсета
+                Word[] d = c.getWords();
+
+                for (int k = 0; k != d.length; k++)
+                {   //для каждой целевой леммы
+                    String tar = d[k].getLemma();
+                    this.AddArc(lemma, tar);
+
+                }
+
+            }
+        }
+
+    }
 }
