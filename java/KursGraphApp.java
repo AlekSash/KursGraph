@@ -48,7 +48,6 @@ public class KursGraphApp
         int wer = 0;
         while ((it.hasNext()) && (wer < 20)) {   //текущее слово из словаря
             IndexWord current = (IndexWord) it.next();
-
             System.out.println();
             System.out.println();
             System.out.println(wer);
@@ -56,17 +55,56 @@ public class KursGraphApp
             String lemma = current.getLemma();
             //получение множества синсетов, в котором она содержится
             Synset[] a = current.getSenses();
-            tes.graphFill(lemma, a);
+            graphFillVer(lemma);
+            for (int i = 0; i != a.length; i++)
+            {  //для каждого синсета получение множества указателей на другие синсеты
+                Pointer[] b = a[i].getPointers();
+
+                for (int j = 0; j != b.length; j++)
+                {   //для каждого указателя получение его целевого синсета
+                    Synset c = b[j].getTargetSynset();
+                    //получение множества слов целевого синсета
+                    Word[] d = c.getWords();
+
+                    for (int k = 0; k != d.length; k++)
+                    {   //для каждой целевой леммы
+                        String tar = d[k].getLemma();
+                        graphFillArc(lemma, tar);
+
+                    }
+
+                    tester.println();
+                }
+            }
+            tester.println();
+            tester.println();
             wer++;
         }
 
         writer.println("Graph size:");
         writer.print(tes.GetSize());
-        //tester.close();
+
         writer.close();
+        tester.close();
         System.in.read();
 
 
+    }
+
+    public static void graphFillArc(String lemma, String tar)throws JWNLException
+{
+        /*добавление леммы в граф в виде узла*/
+    tes.AddArc(lemma, tar);
+    tester.print(tar);
+    tester.print(" ");
+}
+
+    public static void graphFillVer(String lemma)throws JWNLException
+    {
+        /*добавление леммы в граф в виде узла*/
+        tes.AddNode(lemma);
+        tester.print(lemma);
+        tester.println();
     }
 
 }

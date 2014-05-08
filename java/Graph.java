@@ -89,30 +89,5 @@ class Graph
         sourceNode.delArc(target);
     };
 
-    public void graphFill(String lemma, Synset [] a)throws JWNLException
-    {
-            /*добавление леммы в граф в виде узла*/
-        this.AddNode(lemma);
 
-        for (int i = 0; i != a.length; i++)
-        {  //для каждого синсета получение множества указателей на другие синсеты
-            Pointer[] b = a[i].getPointers();
-
-            for (int j = 0; j != b.length; j++)
-            {   //для каждого указателя получение его целевого синсета
-                Synset c = b[j].getTargetSynset();
-                //получение множества слов целевого синсета
-                Word[] d = c.getWords();
-
-                for (int k = 0; k != d.length; k++)
-                {   //для каждой целевой леммы
-                    String tar = d[k].getLemma();
-                    this.AddArc(lemma, tar);
-
-                }
-
-            }
-        }
-
-    }
 }
