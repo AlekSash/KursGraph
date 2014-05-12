@@ -1,2 +1,2 @@
 Graph size:
-20
+31

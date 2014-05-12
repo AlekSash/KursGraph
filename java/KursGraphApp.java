@@ -28,85 +28,41 @@ import sun.security.provider.certpath.Vertex;
 
 public class KursGraphApp
 {
-    private static Graph tes;
-    private static PrintWriter writer;
-    private static PrintWriter tester;
+    private static int maxWords = 31;
 
     public static void main(String[] args) throws Exception
     {
-        JWNL.initialize(new FileInputStream("file_properties.xml"));
-        Dictionary dict = Dictionary.getInstance();
-        Iterator it = dict.getIndexWordIterator(POS.NOUN);
-
-        writer = new PrintWriter("writer.txt", "UTF-8");
-        tester = new PrintWriter("tester.txt", "UTF-8");
+        PrintWriter writer = new PrintWriter("writer.txt", "UTF-8");
+        PrintWriter tester = new PrintWriter("tester.txt", "UTF-8");
 
         /*создание графа*/
-        tes = new Graph();
-        /*создание итератора по узлам для графа*/
-        Iterator<Node> it1 = tes.CreateIterator();
-        int wer = 0;
-        while ((it.hasNext()) && (wer < 20)) {   //текущее слово из словаря
-            IndexWord current = (IndexWord) it.next();
-            System.out.println();
-            System.out.println();
-            System.out.println(wer);
-            //получение леммы
-            String lemma = current.getLemma();
-            //получение множества синсетов, в котором она содержится
-            Synset[] a = current.getSenses();
-            graphFillVer(lemma);
-            for (int i = 0; i != a.length; i++)
-            {  //для каждого синсета получение множества указателей на другие синсеты
-                Pointer[] b = a[i].getPointers();
+        Graph wordsGraph = new Graph();
 
-                for (int j = 0; j != b.length; j++)
-                {   //для каждого указателя получение его целевого синсета
-                    Synset c = b[j].getTargetSynset();
-                    //получение множества слов целевого синсета
-                    Word[] d = c.getWords();
+        // Обработчик WordNet
+        WordnetHandler wordnetHandler = new WordnetHandler();
+        wordnetHandler.SetMaxWords(maxWords);
 
-                    for (int k = 0; k != d.length; k++)
-                    {   //для каждой целевой леммы
-                        String tar = d[k].getLemma();
-                        graphFillArc(lemma, tar);
+        List<String> list = wordnetHandler.GetNextWordWithSynsets();
 
-                    }
+        while (list != null)
+        {
+            wordsGraph.AddNode(list.get(0));
 
-                    tester.println();
-                }
+            for (int i = 1; i < list.size(); i++)
+            {
+                wordsGraph.AddArc(list.get(0),list.get(i));
             }
-            tester.println();
-            tester.println();
-            wer++;
+
+            list = wordnetHandler.GetNextWordWithSynsets();
         }
 
         writer.println("Graph size:");
-        writer.print(tes.GetSize());
+        writer.print(wordsGraph.GetSize());
 
         writer.close();
-        tester.close();
+
         System.in.read();
-
-
     }
-
-    public static void graphFillArc(String lemma, String tar)throws JWNLException
-{
-        /*добавление леммы в граф в виде узла*/
-    tes.AddArc(lemma, tar);
-    tester.print(tar);
-    tester.print(" ");
-}
-
-    public static void graphFillVer(String lemma)throws JWNLException
-    {
-        /*добавление леммы в граф в виде узла*/
-        tes.AddNode(lemma);
-        tester.print(lemma);
-        tester.println();
-    }
-
 }
 
 
