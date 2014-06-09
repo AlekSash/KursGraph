@@ -1,11 +1,16 @@
 
+import java.lang.Object;
+import java.lang.String;
+import java.lang.System;
 import java.util.*;
+import java.io.*;
+import java.util.Objects;
 
 /*класс узла*/
 class Node {
     private Object node;
     /*множество смежных узлов*/
-    private Vector adjacentNodes = new Vector();
+    private Vector <Object> adjacentNodes = new Vector<Object>();
 
     public Node(Object node) {
         this.node = node;
@@ -26,12 +31,14 @@ class Node {
         return adjacentNodes.toArray(new Object[adjacentNodes.size()]);
     }
 
-    public Iterator<Node> CreateIterator() {
+    public Iterator<Object> CreateIterator() {
         return adjacentNodes.iterator();
     }
 
     /*добавление смежного узла = добавление ребра*/
     public void addArc(Object elem) {
+        int nodeIndex = adjacentNodes.indexOf(elem);
+        if(nodeIndex==-1)
         adjacentNodes.add(elem);
     }
 

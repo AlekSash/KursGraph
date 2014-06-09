@@ -1,6 +1,7 @@
 
 import java.io.FileNotFoundException;
 import java.lang.String;
+import java.lang.System;
 import java.util.*;
 import java.io.*;
 
@@ -41,31 +42,42 @@ class WordnetHandler {
 
             //получение леммы
             String lemma = current.getLemma();
+            //System.out.println();
+            //System.out.println(lemma);
             wordList.add(0, lemma);
 
             //получение множества синсетов, в котором она содержится
             Synset[] a = current.getSenses();
+            for (int i = 0; i < a.length; i++) {
+                Word[] d = a[i].getWords();
 
-            for (int i = 0; i < a.length; i++)
-            {  //для каждого синсета получение множества указателей на другие синсеты
-                Pointer[] b = a[i].getPointers();
-
-                for (int j = 0; j < b.length; j++)
-                {   //для каждого указателя получение его целевого синсета
-                    Synset c = b[j].getTargetSynset();
-                    //получение множества слов целевого синсета
-                    Word[] d = c.getWords();
-
-                    for (int k = 0; k < d.length; k++)
-                    {   //для каждой целевой леммы
-                        String tar = d[k].getLemma();
-                        wordList.add(tar);
-                    }
-
+                for (int k = 0; k < d.length; k++)
+                {   //для каждой целевой леммы
+                    String tar = d[k].getLemma();
+                    wordList.add(tar);
                 }
             }
 
+//            for (int i = 0; i < a.length; i++)
+//            {  //для каждого синсета получение множества указателей на другие синсеты
+//                Pointer[] b = a[i].getPointers();
+//
+//                for (int j = 0; j < b.length; j++)
+//                {   //для каждого указателя получение его целевого синсета
+//                    Synset c = b[j].getTargetSynset();
+//
+//                    //получение множества слов целевого синсета
+//                    Word[] d = c.getWords();
+//
+//                    for (int k = 0; k < d.length; k++)
+//                    {   //для каждой целевой леммы
+//                        String tar = d[k].getLemma();
+//                        wordList.add(tar);
+//                    }
+//                }
+//            }
             currentIndex++;
+
             return wordList;
         }
         else
