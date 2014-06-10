@@ -18,7 +18,7 @@ import sun.security.provider.certpath.Vertex;
 class WordnetHandler {
     private Dictionary dictionary = null;
     private Iterator iterator = null;
-    private int currentIndex = 0;
+    private int currentIndex = 0;//номер текущего узла
     private int maxWords = 20;
 
     public WordnetHandler() throws FileNotFoundException, JWNLException{
@@ -30,29 +30,28 @@ class WordnetHandler {
     public void SetMaxWords(int number){
         this.maxWords = number;
     }
+    /*получение очередного слова и связанных с ним слов*/
+    public List<String> GetNextWordWithSynsets() throws JWNLException
+    {
 
-    public List<String> GetNextWordWithSynsets() throws JWNLException{
-
-        if ((iterator.hasNext()) && (currentIndex < maxWords)) {
-
+        if ((iterator.hasNext()) && (currentIndex < maxWords))
+        {
             List<String> wordList = new ArrayList<String>();
-
-            //текущее слово из словаря
+            /*текущее слово из словаря*/
             IndexWord current = (IndexWord) iterator.next();
-
-            //получение леммы
+            /*получение леммы - содержимое слова*/
             String lemma = current.getLemma();
-            //System.out.println();
-            //System.out.println(lemma);
+            /*лемму в начало wordList*/
             wordList.add(0, lemma);
-
-            //получение множества синсетов, в котором она содержится
+            /*получение множества синсетов, в котором она содержится*/
             Synset[] a = current.getSenses();
-            for (int i = 0; i < a.length; i++) {
+            /*получение множества слов из каждого такого синсета*/
+            for (int i = 0; i < a.length; i++)
+            {
                 Word[] d = a[i].getWords();
-
+                /*добавление этих слов в wordList*/
                 for (int k = 0; k < d.length; k++)
-                {   //для каждой целевой леммы
+                {
                     String tar = d[k].getLemma();
                     wordList.add(tar);
                 }

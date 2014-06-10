@@ -8,42 +8,50 @@ import java.util.Objects;
 
 /*класс узла*/
 class Node {
-    private Object node;
+    private String node;
     /*множество смежных узлов*/
-    private Vector <Object> adjacentNodes = new Vector<Object>();
+    private Vector <String> adjacentNodes = new Vector<String>();
 
-    public Node(Object node) {
+    public Node(String node)
+    {
         this.node = node;
     }
 
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (node == null || o == null || !(o instanceof Node))
             return false;
         Node n = (Node)o;
         return node == n.getNode() || node.equals(n.getNode());
     }
 
-    public Object getNode() {
+    public String getNode()
+    {
         return node;
     }
 
-    public Object[] getAdjacentNodes() {
-        return adjacentNodes.toArray(new Object[adjacentNodes.size()]);
+    public String[] getAdjacentNodes()
+    {
+        return adjacentNodes.toArray(new String[adjacentNodes.size()]);
     }
 
-    public Iterator<Object> CreateIterator() {
+    public Iterator<String> CreateIterator()
+    {
         return adjacentNodes.iterator();
     }
 
     /*добавление смежного узла = добавление ребра*/
-    public void addArc(Object elem) {
-        int nodeIndex = adjacentNodes.indexOf(elem);
+    public void addArc(Node elem)
+    {
+        String s = elem.getNode();
+        int nodeIndex = adjacentNodes.indexOf(s);
         if(nodeIndex==-1)
-        adjacentNodes.add(elem);
+        adjacentNodes.add(s);
     }
 
     /*удаление смежного узла = удаление ребра*/
-    public void delArc(Object elem) {
+    public void delArc(String elem)
+    {
         adjacentNodes.removeElement(elem);
     }
 }

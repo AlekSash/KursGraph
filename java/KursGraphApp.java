@@ -30,23 +30,23 @@ import sun.security.provider.certpath.Vertex;
 
 
 public class KursGraphApp
-{
-    private static int maxWords = 20000;
+{   /*количество обрабатываемых слов*/
+    private static int maxWords = 7000;
 
     public static void main(String[] args) throws Exception
     {
         PrintWriter writer = new PrintWriter("writer.txt", "UTF-8");
-
-
-
-        /*создание графа*/
+         /*создание графа*/
         Graph wordsGraph = new Graph();
-
+          /*проверка работы заполнения графа на готовом фрагменте текста*/
+        //---------------------------
+          /*считывание текста из файла в одну строку*/
 //        String content = new Scanner(new File("Text.txt")).useDelimiter("\\Z").next();
+//        /*разбиение на предложения по ограничителям*/
 //        String[] statements = content.replaceAll("[\n\r]", "").split("[.?!]+");
 //        List<String> allWords = new ArrayList<String>();
 //        for (String statement: statements)
-//        {
+//        {   /*разбиение на слова*/
 //            String[] words = statement.split("[^a-zA-Zа-яА-Я]+");
 //
 //            for (String word: words)
@@ -58,15 +58,17 @@ public class KursGraphApp
 //            }
 //        }
 //        System.out.print("Check");
+          /*перевод в нижний регистр, добавление слов в граф*/
 //        for (String word: allWords)
 //        {
 //            wordsGraph.AddNode(word.toLowerCase());
 //        }
-
+         //------------------------------
 
 
         // Обработчик WordNet
         WordnetHandler wordnetHandler = new WordnetHandler();
+        /*установка количества считываемых из WordNet слов*/
         wordnetHandler.SetMaxWords(maxWords);
 
         List<String> list = wordnetHandler.GetNextWordWithSynsets();
@@ -90,6 +92,7 @@ public class KursGraphApp
         writer.println(wordsGraph.GetSize());
         System.out.print("Size : ");
         System.out.println(wordsGraph.GetSize());
+
 
         for (int i = 0; i < wordsGraph.GetSize(); i++ )
         {
