@@ -2,6 +2,7 @@
 import java.io.File;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.io.StringBufferInputStream;
 import java.lang.*;
 import java.lang.Integer;
 import java.lang.Iterable;
@@ -13,6 +14,7 @@ import java.util.*;
 import java.io.*;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.SortedSet;
@@ -28,81 +30,81 @@ import net.didion.jwnl.data.Pointer;
 import net.didion.jwnl.dictionary.Dictionary;
 import sun.security.provider.certpath.Vertex;
 
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class KursGraphApp
-{   /*количество обрабатываемых слов*/
-    private static int maxWords = 7000;
+public class KursGraphApp {   /*количество обрабатываемых слов*/
+    private static int maxWords = 300000;
 
-    public static void main(String[] args) throws Exception
-    {
-        PrintWriter writer = new PrintWriter("writer.txt", "UTF-8");
+    public static void main(String[] args) throws Exception {
+        SingleWriter asd = SingleWriter.getInstance("tester.txt");
          /*создание графа*/
         Graph wordsGraph = new Graph();
-          /*проверка работы заполнения графа на готовом фрагменте текста*/
-        //---------------------------
-          /*считывание текста из файла в одну строку*/
-//        String content = new Scanner(new File("Text.txt")).useDelimiter("\\Z").next();
-//        /*разбиение на предложения по ограничителям*/
-//        String[] statements = content.replaceAll("[\n\r]", "").split("[.?!]+");
-//        List<String> allWords = new ArrayList<String>();
-//        for (String statement: statements)
-//        {   /*разбиение на слова*/
-//            String[] words = statement.split("[^a-zA-Zа-яА-Я]+");
-//
-//            for (String word: words)
-//            {
-//                if (word.matches("[a-zA-Zа-яА-Я]+"))
-//                {
-//                    allWords.add(word);
-//                }
-//            }
-//        }
-//        System.out.print("Check");
-          /*перевод в нижний регистр, добавление слов в граф*/
-//        for (String word: allWords)
-//        {
-//            wordsGraph.AddNode(word.toLowerCase());
-//        }
-         //------------------------------
-
-
         // Обработчик WordNet
         WordnetHandler wordnetHandler = new WordnetHandler();
         /*установка количества считываемых из WordNet слов*/
         wordnetHandler.SetMaxWords(maxWords);
 
-        List<String> list = wordnetHandler.GetNextWordWithSynsets();
+
+
+
+        List<String> list;
         int c = 0;
 
-        while (list != null)
-        {
-            c++;
-            if (c % 1000 == 0) {
-                System.out.println(String.format("%d words done. %d words in graph", c, wordsGraph.GetSize()));
-            }
-            for (int i = 1; i < list.size(); i++)
-            {
-                wordsGraph.AddArc(list.get(0),list.get(i));
-            }
+        for (int r = 0; r < 4; r++) {
 
-            list = wordnetHandler.GetNextWordWithSynsets();
+            list = wordnetHandler.GetNextWordWithSynsets(r);
+            c = 0;
+
+            while (list != null) {
+                c++;
+                String word = list.get(0);
+                asd.Show(word);
+                asd.NewLine();
+
+                for (int i = 1; i < list.size(); i++) {
+                    String synWord = list.get(i);
+//                    asd.Show(synWord);
+
+                    wordsGraph.AddArc(word, synWord);
+                }
+                if (c % 1000 == 0) {
+                    System.out.println(String.format("%d words done. %d nodes in graph", c, wordsGraph.GetSize()));
+                }
+
+                list = wordnetHandler.GetNextWordWithSynsets(r);
+
+
+            }
         }
 
-        writer.print("Graph size :");
-        writer.println(wordsGraph.GetSize());
-        System.out.print("Size : ");
+
+        asd.Show("Graph size :");
+        asd.Show(wordsGraph.GetSize());
+        asd.NewLine();
+
+        System.out.print("Graph size : ");
         System.out.println(wordsGraph.GetSize());
-
-
-        for (int i = 0; i < wordsGraph.GetSize(); i++ )
-        {
-            writer.println((String)(((Node)wordsGraph.GetElem(i)).getNode()));
+        System.out.println("Number of components : " + (wordsGraph.Colorize()));
+        for (int i = 0; i < wordsGraph.GetSize(); i++) {
+            asd.Show(((Node) wordsGraph.GetElem(i)).getNode());
+            asd.Show(((Node) wordsGraph.GetElem(i)).GetComponentNumber());
+            String [] dfg =((Node) wordsGraph.GetElem(i)).getAdjacentNodes();
+            asd.Show("(");
+            for(int j = 0; j< dfg.length; j++){
+                asd.Show(dfg[j]);
+            }
+            asd.Show(")");
+            asd.NewLine();
         }
-
-        writer.close();
-
+        asd.Close();
         System.in.read();
     }
 }
+
+
+
+
+
 
 
