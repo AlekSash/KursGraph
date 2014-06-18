@@ -28,7 +28,11 @@ import javax.management.monitor.StringMonitor;
 class Graph {
     /*множество узлов*/
     private Hashtable<String, Node> nodes = new Hashtable<String, Node>();
+    private Hashtable<Integer,Integer> connectComponents  = new Hashtable<Integer, Integer>();
     private int numberOfComponents = 0;
+    private  int maxNumberInComponent = 0;
+    private int minNumberInComponent = 300;
+    private int maxComp = 0;
 
     /*получение узла по индексу*/
     public Object GetElem(int index) {
@@ -36,8 +40,20 @@ class Graph {
     }
 
     /*получение узла по содержимому*/
-    public String GetElem(String node) {
-        return nodes.get(node).getNode();
+    public Node GetElem(String node) {
+        return nodes.get(node);
+    }
+
+    public int GetMaxNumberInComponent(){
+        return maxNumberInComponent;
+    }
+
+    public int GetMaxComp(){
+        return maxComp;
+    }
+
+    public int GetMinNumberInComponent() {
+        return minNumberInComponent;
     }
 
 
@@ -74,6 +90,9 @@ class Graph {
     }
 
     ;
+    public Hashtable<Integer, Integer> GetConnectComponents(){
+        return connectComponents;
+    }
 
 
     /*удаление узла по индексу
@@ -142,13 +161,21 @@ class Graph {
         int currentColor = 1;
         /*очередь узлов на обработку*/
         Queue<Node> queue = new LinkedList<Node>();
-
+        int term;
         /*для каждого узла из графа*/
         for (Node node : nodes.values()) {
             /*если он ещё не обработан*/
             if (!node.IsVisited()) {
                 /*красим*/
                 node.SetComponentNumber(currentColor);
+
+                if (!connectComponents.containsKey(currentColor))
+                    connectComponents.put(currentColor, 1);
+                else{
+                term = connectComponents.get(currentColor);
+                connectComponents.put(currentColor, term + 1);
+                }
+
                 currentColor++;
                 /*помещаем в очередь*/
                 queue.add(node);
@@ -162,9 +189,20 @@ class Graph {
                 current.SetVisited(true);
                 /*раскрашиваем смежные с ним узлы*/
                 List<Node> linkedNodes = current.Colorize();
+                term = connectComponents.get(currentColor-1);
+                connectComponents.put(currentColor-1, term + linkedNodes.size());
                 /*помещаем их в очередь*/
                 queue.addAll(linkedNodes);
             }
+            term =connectComponents.get(currentColor-1);
+            if(term>maxNumberInComponent)
+            {
+                maxNumberInComponent = term;
+                maxComp = currentColor - 1;
+            }
+                if(term<minNumberInComponent)
+                minNumberInComponent = term;
+
         }
 
         numberOfComponents = currentColor - 1;

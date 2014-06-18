@@ -9,7 +9,7 @@ import java.lang.System;
 public class SingleWriter {
     private static SingleWriter instance = null;
     private static PrintWriter out;
-    private static boolean flag = false;
+    private static boolean flag = true;
 
     private SingleWriter() {
     }

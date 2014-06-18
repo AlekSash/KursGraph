@@ -88,6 +88,7 @@ class WordnetHandler {
                 /*добавление этих слов в wordList*/
                 for (int k = 0; k < d.length; k++) {
                     String tar = d[k].getLemma();
+                    if(!tar.equals(lemma))
                     wordList.add(tar);
                 }
             }

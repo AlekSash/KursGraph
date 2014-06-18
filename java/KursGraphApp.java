@@ -6,6 +6,7 @@ import java.io.StringBufferInputStream;
 import java.lang.*;
 import java.lang.Integer;
 import java.lang.Iterable;
+import java.lang.NoClassDefFoundError;
 import java.lang.NullPointerException;
 import java.lang.Object;
 import java.lang.String;
@@ -34,7 +35,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class KursGraphApp {   /*количество обрабатываемых слов*/
-    private static int maxWords = 300000;
+    private static int maxWords = 250;
 
     public static void main(String[] args) throws Exception {
         SingleWriter asd = SingleWriter.getInstance("tester.txt");
@@ -59,8 +60,7 @@ public class KursGraphApp {   /*количество обрабатываемы�
             while (list != null) {
                 c++;
                 String word = list.get(0);
-                asd.Show(word);
-                asd.NewLine();
+                wordsGraph.AddNode(word);
 
                 for (int i = 1; i < list.size(); i++) {
                     String synWord = list.get(i);
@@ -80,23 +80,36 @@ public class KursGraphApp {   /*количество обрабатываемы�
 
 
         asd.Show("Graph size :");
-        asd.Show(wordsGraph.GetSize());
+        int dim =  wordsGraph.GetSize();
+
+        asd.Show(dim);
         asd.NewLine();
 
         System.out.print("Graph size : ");
         System.out.println(wordsGraph.GetSize());
-        System.out.println("Number of components : " + (wordsGraph.Colorize()));
-        for (int i = 0; i < wordsGraph.GetSize(); i++) {
-            asd.Show(((Node) wordsGraph.GetElem(i)).getNode());
-            asd.Show(((Node) wordsGraph.GetElem(i)).GetComponentNumber());
-            String [] dfg =((Node) wordsGraph.GetElem(i)).getAdjacentNodes();
+        int  colorize =wordsGraph.Colorize();
+        System.out.println("Number of components : " + colorize);
+        System.out.print("min = ");
+        System.out.println(wordsGraph.GetMinNumberInComponent());
+        System.out.print("max = ");
+        System.out.println(wordsGraph.GetMaxNumberInComponent());
+        System.out.print("maxComp = ");
+        System.out.println(wordsGraph.GetMaxComp());
+        for (int i = 0; i < wordsGraph.GetSize(); i++){
+            Node hj = (Node)wordsGraph.GetElem(i);
+            asd.Show(hj.GetComponentNumber());
+            asd.Show(hj.getNode());
             asd.Show("(");
-            for(int j = 0; j< dfg.length; j++){
-                asd.Show(dfg[j]);
-            }
+                    String[]fg  = hj.getAdjacentNodes();
+                    for(int j = 0; j<fg.length; j++)
+                    {
+                        asd.Show(fg[j]);
+                    }
             asd.Show(")");
             asd.NewLine();
         }
+
+
         asd.Close();
         System.in.read();
     }
